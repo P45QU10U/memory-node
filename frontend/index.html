@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>Jeu memory</title>
+  </head>
+  <body>
+    <h1>Oclock</h1>
+    <h2></h2>
+    <div class="container">
+      <div class="cards">
+      </div>
+      <div class="params">
+        <button type="button" class="startgame">Nouveau jeu</button>
+        <span class="timer"></span>
+        <progress name="progress" value="0" max="100" />
+      </div>
+
+     
+      <noscript>Veuillez, s'il vous plaît, activer JavaScript pour jouer à ce jeu.</noscript>
+    </div>
+
+    <!-- <form >
+      <label>Pseudo : <input type="text" name="pseudo" /></label>
+      <input type="hidden" value="14" name="time" />
+      <button type="submit">Enregistrer</button> 
+    </form> -->
+    <div class="hidden">
+      <p>Temps réalisé : <span class="realisedtime"></span></p>
+      <p>Veuillez renseigner votre pseudo s'il vous plaît pour enregistrer votre score</p>
+      <form id="submittime">
+        <label>Pseudo : <input type="text" name="pseudo" /></label>
+        <input type="hidden" value="" name="time" />
+        <button type="submit">Enregistrer</button> 
+      </form>
+
+    </div>
+
+    <script src="./scripts.js"></script>
+
+   
+  </body>
+</html>
