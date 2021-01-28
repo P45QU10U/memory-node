@@ -23,19 +23,12 @@ https://www.mongodb.com/cloud/atlas
 Récupérer votre chaine pour la connection, et la renseigner dans le fichier .env (utilisé pour les variables d'environnement)
 Celui-ci se situe à la racine du dossier `backend`.
 
-[source, text]
-..env
-
----
-
-## URL_MONGO=mongodb://localhost:27017/memory
-
 ### Front et Back
 
 Dans ces deux dossiers, il est nécessaire d'installer les packages npm. A la racine des deux dossiers frontend et backend...
 
-## [source, bash]
-
-## npm install && npm start
+```
+npm install && npm start
+```
 
 Rendez-vous sur http://localhost:8700 pour jouer.
