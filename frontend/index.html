@@ -8,39 +8,34 @@
     <title>Jeu memory</title>
   </head>
   <body>
-    <h1>Oclock</h1>
-    <h2></h2>
     <div class="container">
-      <div class="cards">
-      </div>
-      <div class="params">
-        <button type="button" class="startgame">Nouveau jeu</button>
-        <span class="timer"></span>
-        <progress name="progress" value="0" max="100" />
+      <h1>O'clock</h1>
+      <h2>
+        Jeu de mémoire
+        <span role="image" aria-label="tête qui explose">🤯</span>
+      </h2>
+      <button type="button" class="startgame">Nouveau jeu</button>
+      <div class="cards" aria-live="polite"></div>
+      <div class="params hidden">
+        <div role="timer">Décompte : <span class="timer">non engagé</span></div>
+        <div>Progression <progress name="progress" value="0" max="100" /></div>
       </div>
 
-     
-      <noscript>Veuillez, s'il vous plaît, activer JavaScript pour jouer à ce jeu.</noscript>
+      <div class="registerscore hidden">
+        <p><span class="realisedtime"></span></p>
+        <p>Renseignez votre pseudo et enregistrez votre temps de jeu</p>
+        <form id="submittime">
+          <label>Pseudo : <input type="text" name="pseudo" /></label>
+          <input type="hidden" value="" name="time" />
+          <button type="submit">Enregistrer mon temps</button>
+        </form>
+      </div>
     </div>
 
-    <!-- <form >
-      <label>Pseudo : <input type="text" name="pseudo" /></label>
-      <input type="hidden" value="14" name="time" />
-      <button type="submit">Enregistrer</button> 
-    </form> -->
-    <div class="hidden">
-      <p>Temps réalisé : <span class="realisedtime"></span></p>
-      <p>Veuillez renseigner votre pseudo s'il vous plaît pour enregistrer votre score</p>
-      <form id="submittime">
-        <label>Pseudo : <input type="text" name="pseudo" /></label>
-        <input type="hidden" value="" name="time" />
-        <button type="submit">Enregistrer</button> 
-      </form>
-
-    </div>
-
+    <noscript
+      >Veuillez, s'il vous plaît, activer JavaScript pour jouer à ce
+      jeu.</noscript
+    >
     <script src="./scripts.js"></script>
-
-   
   </body>
 </html>
