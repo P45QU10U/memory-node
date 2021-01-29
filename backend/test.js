@@ -248,8 +248,7 @@ class Game {
     const time = document.querySelector('[name="time"]');
     time && time.setAttribute('value', String(timeinseconds));
     registerScoreForm.classList.remove('hidden');
-  }
-
+  };
 }
 
 class Scores {
@@ -261,14 +260,13 @@ class Scores {
   fetchTopScores = async () => {
     try {
       const topScores = await client('http://localhost:3000/savedgames');
-      this.databaseLink = false
+      this.databaseLink = false;
       return topScores;
     } catch (error) {
-      this.databaseLink = true
+      this.databaseLink = true;
       throw new Error('Pas de résultats');
     }
   };
-
 
   // Génération tableau des meilleurs temps
   displayScores = function (secondsscores) {
@@ -313,7 +311,7 @@ class Scores {
     document.querySelector('.cards').innerHTML = '';
     document.querySelector('.cards').append(fragment);
   };
-  
+
   // Appel pour affichage du tableau des scores
   aboutScores = async () => {
     try {
@@ -330,14 +328,14 @@ class Scores {
     if (state) {
       errortag.textContent = 'Scores non disponibles';
     }
-    return errortag.textContent = '';
-  }
+    return (errortag.textContent = '');
+  };
 
   submitScore = async (ev) => {
     ev.preventDefault();
     registerScoreForm.classList.add('hidden');
     params.classList.add('hidden');
-  
+
     try {
       await client('http://localhost:3000/savegame', {
         data: {
@@ -345,18 +343,14 @@ class Scores {
           donein: ev.target.time.value,
         },
       });
-      
+
       this.switchScoreDisplay(false);
       this.aboutScores();
     } catch (error) {
       this.switchScoreDisplay(true);
     }
-  }
+  };
 }
-
-
-
-
 
 function initGame() {
   const memory = new Game();
@@ -370,5 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mise en place des listeners
   document.querySelector('button').addEventListener('click', initGame);
-  document.querySelector('#submittime').addEventListener('submit', scores.submitScore);
+  document
+    .querySelector('#submittime')
+    .addEventListener('submit', scores.submitScore);
 });
