@@ -1,7 +1,8 @@
+use memory
 db.createUser(
   {
-      user: "oclock",
-      pwd: "oclock",
+      user: "bob",
+      pwd: "bob",
       roles: [
           {
               role: "readWrite",

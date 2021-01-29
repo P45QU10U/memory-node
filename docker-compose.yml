@@ -2,36 +2,14 @@ version: "3.8"
 
 services:
   http:
-    image: nginx
-    build:
-      context: ./
-      dockerfile: ./frontend/Dockerfile
-    ports:
-      - 8080:80
-  memory:
-    image: memory
-    build:
-      context: ./
-      target: dev
-      dockerfile: ./backend/Dockerfile
+    image: nginx:latest
     volumes:
-      - .:/usr/src/app
+      - ./frontend:/usr/share/nginx/html
+    ports:
+      - 8700:80
+  memory:
+    build: ./backend
+    volumes:
+      - ./backend:/usr/src/app
     ports:
       - 3000:3000
-    environment:
-      - URL_MONGO=mongodb://api:docker1234@mongo
-    links:
-      - mongodb
-  mongodb:
-    image: mongo:latest
-    restart: always
-    ports:
-      - 27017:27017
-    volumes:
-      - data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=api
-      - MONGO_INITDB_ROOT_PASSWORD=docker1234
-      - MONGO_INITDB_DATABASE=memory
-volumes:
-  data:
